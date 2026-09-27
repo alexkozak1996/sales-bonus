@@ -24,11 +24,11 @@ function calculateBonusByProfit(index, total, seller) {
     // Расчет бонуса от позиции в рейтинге
     const { profit } = seller;
 
-    if (index === 1) {
+    if (index === 0) {
         return profit * 0.15; // Первое место по прибыли
     }
-    else if (index === 1 || index ===2) {
-        return profit * 0.1; // Второе место по прибыли
+    else if (index === 1 || index === 2) {
+        return profit * 0.10; // Второе место по прибыли
     }
     else if (index === total - 1) {
         return 0; // Последнее место по прибыли
@@ -54,7 +54,7 @@ function analyzeSalesData(data, options) {
     || data.products.length === 0          
     || data.purchase_records.length === 0  
     ) {
-    throw new Error('Некорректные входные данные');
+        throw new Error('Некорректные входные данные');
     }
 
     // Проверка наличия опций
